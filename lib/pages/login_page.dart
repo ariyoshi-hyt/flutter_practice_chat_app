@@ -4,6 +4,9 @@ import 'package:flutter_practice_chat_app/providers/auth_provider.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
+import "package:flutter_practice_chat_app/pages/pages.dart";
+import "package:flutter_practice_chat_app/widgets/widges.dart";
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
