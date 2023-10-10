@@ -5,6 +5,7 @@ import "package:firebase_core/firebase_core.dart";
 import "package:flutter_practice_chat_app/constants/app_constants.dart";
 import "package:flutter_practice_chat_app/constants/constants.dart";
 import "package:flutter_practice_chat_app/providers/auth_provider.dart";
+import "package:flutter_practice_chat_app/providers/providers.dart";
 import "package:google_sign_in/google_sign_in.dart";
 import "package:provider/provider.dart";
 import "package:shared_preferences/shared_preferences.dart";
@@ -37,9 +38,25 @@ class MyApp extends StatelessWidget {
                 prefs: this.prefs,
                 firebaseFirestore: this.firebaseFirestore),
           ),
-          // TODO: SettingProvider
-          // TODO: HomeProvider
-          // TODO: ChatProvider
+        Provider<SettingProvider>(
+          create: (_) => SettingProvider(
+            prefs: this.prefs,
+            firebaseFirestore: this.firebaseFirestore,
+            firebaseStorage: this.firebaseStorage,
+          ),
+        ),
+        Provider<HomeProvider>(
+          create: (_) => HomeProvider(
+            firebaseFirestore: this.firebaseFirestore,
+          ),
+        ),
+        Provider<ChatProvider>(
+          create: (_) => ChatProvider(
+            prefs: this.prefs,
+            firebaseFirestore: this.firebaseFirestore,
+            firebaseStorage: this.firebaseStorage,
+          ),
+        ),
         ],
         child: MaterialApp(
           title: AppConstants.appTitle,
