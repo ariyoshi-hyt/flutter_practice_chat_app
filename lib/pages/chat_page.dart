@@ -159,6 +159,7 @@ class ChatPageState extends State<ChatPage> {
   Widget buildItem(int index, DocumentSnapshot? document) {
     if (document != null) {
       MessageChat messageChat = MessageChat.fromDocument(document);
+      print(messageChat.toString());
       if (messageChat.idFrom == currentUserId) {
         // Right (my message)
         return Row(
@@ -279,7 +280,7 @@ class ChatPageState extends State<ChatPage> {
                 children: <Widget>[
                   isLastMessageLeft(index)
                       ? Material(
-                          borderRadius: BorderRadius.all(
+                          borderRadius: const BorderRadius.all(
                             Radius.circular(18),
                           ),
                           clipBehavior: Clip.hardEdge,
@@ -300,7 +301,7 @@ class ChatPageState extends State<ChatPage> {
                               );
                             },
                             errorBuilder: (context, object, stackTrace) {
-                              return Icon(
+                              return const Icon(
                                 Icons.account_circle,
                                 size: 35,
                                 color: ColorConstants.greyColor,
