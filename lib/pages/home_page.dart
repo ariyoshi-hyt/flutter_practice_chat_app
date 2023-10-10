@@ -498,22 +498,21 @@ class HomePageState extends State<HomePage> {
               ],
             ),
             onPressed: () {
-              print("チャットページに遷移するよ");
               if (Utilities.isKeyboardShowing()) {
                 Utilities.closeKeyboard(context);
               }
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => ChatPage(
-              //       arguments: ChatPageArguments(
-              //         peerId: userChat.id,
-              //         peerAvatar: userChat.photoUrl,
-              //         peerNickname: userChat.nickname,
-              //       ),
-              //     ),
-              //   ),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatPage(
+                    arguments: ChatPageArguments(
+                      peerId: userChat.id,
+                      peerAvatar: userChat.photoUrl,
+                      peerNickname: userChat.nickname,
+                    ),
+                  ),
+                ),
+              );
             },
             style: ButtonStyle(
               backgroundColor:
